@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Form</title>
+</head>
+
+<body>
+    <form id="redirectForm">
+        <label for="pathInput">Enter Path:</label>
+        <input type="text" id="pathInput" placeholder="Enter path" required>
+        <button type="submit">Go</button>
+    </form>
+
+    <script>
+        document.getElementById('redirectForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            const baseUrl = "https://vscode.carsonmayn.com/proxy/801/"; // Replace with your base URL
+            const path = document.getElementById('pathInput').value.trim(); // Get and trim the input value
+            if (path) {
+                window.location.href = baseUrl + path; // Redirect to base URL + path
+            } else {
+                alert("Please enter a valid path!");
+            }
+        });
+    </script>
+</body>
+
+</html>
